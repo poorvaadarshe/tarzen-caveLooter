@@ -3,6 +3,7 @@
  */
 package com.tarzen.cavelooter.service.impl;
 
+import com.tarzen.cavelooter.constants.Constants;
 import com.tarzen.cavelooter.entity.Game;
 import com.tarzen.cavelooter.enums.MenuEnum;
 import com.tarzen.cavelooter.factory.TarzenServiceFactory;
@@ -11,8 +12,8 @@ import com.tarzen.cavelooter.service.GameRefereeService;
 import com.tarzen.cavelooter.util.UserInputReader;
 
 /**
- * Responsible to present game options to user,navigate to realize user's
- * selected game action.
+ * Responsible to present game options to user,navigates to service layer to realize user's
+ * choice.
  */
 public class GameActionsServiceImpl implements GameActionsService {
 
@@ -56,7 +57,7 @@ public class GameActionsServiceImpl implements GameActionsService {
 	}
 
 	private GameRefereeService getCaveLootReporterService() {
-		return (GameRefereeService) TarzenServiceFactory.getService("GameReferee");
+		return (GameRefereeService) TarzenServiceFactory.getServiceObject(Constants.GAME_REFEREE);
 	}
 
 }

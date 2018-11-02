@@ -1,8 +1,5 @@
 package com.tarzen.cavelooter.menu.navigator.service.impl;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -14,11 +11,10 @@ import org.powermock.api.mockito.PowerMockito;
 import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
-import com.tarzen.cavelooter.entity.Barrier;
+import com.tarzen.cavelooter.constants.Constants;
 import com.tarzen.cavelooter.entity.Game;
-import com.tarzen.cavelooter.entity.Player;
 import com.tarzen.cavelooter.factory.TarzenServiceFactory;
-import com.tarzen.cavelooter.menu.navigator.service.impl.WelcomeMenuActionsServiceImpl;
+import com.tarzen.cavelooter.model.DataCreationHelper;
 import com.tarzen.cavelooter.service.BarrierService;
 import com.tarzen.cavelooter.service.GameActionsService;
 import com.tarzen.cavelooter.service.GameService;
@@ -47,54 +43,31 @@ public class WelcomeMenuActionsServiceImplTest {
 	public void setup() {
 		MockitoAnnotations.initMocks(this);
 		PowerMockito.mockStatic(TarzenServiceFactory.class);
-		Mockito.when(TarzenServiceFactory.getService("game")).thenReturn(gameService);
-		Mockito.when(TarzenServiceFactory.getService("gameAction")).thenReturn(gameActionsService);
-		Mockito.when(TarzenServiceFactory.getService("barrier")).thenReturn(barrierService);
-		Mockito.when(TarzenServiceFactory.getService("player")).thenReturn(playerService);
-
 	}
 
 	@Test
 	public void resumeLastPlayedGame() {
-		Mockito.when(TarzenServiceFactory.getService("game")).thenReturn(gameService);
-		Mockito.when(gameService.loadLastPlayedGame()).thenReturn(formGameObject());
+		Mockito.when(TarzenServiceFactory.getServiceObject(Constants.GAME)).thenReturn(gameService);
+		Mockito.when(gameService.loadLastPlayedGame()).thenReturn(DataCreationHelper.createGameModel());
+		Mockito.when(TarzenServiceFactory.getServiceObject(Constants.GAME_ACTION)).thenReturn(gameActionsService);
 		welcomeMenuActionsServiceImpl.resumeLastPlayedGame();
 	}
 
 	@Test
-	public void secureGame(){
-		welcomeMenuActionsServiceImpl.secureGame(formGameObject());
+	public void secureGame() {
+		Mockito.when(TarzenServiceFactory.getServiceObject(Constants.GAME)).thenReturn(gameService);
+		Mockito.doNothing().when(gameService).saveGame(Mockito.isA(Game.class), Mockito.anyBoolean());
+		welcomeMenuActionsServiceImpl.secureGame(DataCreationHelper.createGameModel());
 	}
-	
+
 	@Test
-	public void organizeNewGame(){
+	public void organizeNewGame() {
+		Mockito.when(TarzenServiceFactory.getServiceObject(Constants.GAME)).thenReturn(gameService);
+		Mockito.when(TarzenServiceFactory.getServiceObject(Constants.GAME_ACTION)).thenReturn(gameActionsService);
+		Mockito.when(TarzenServiceFactory.getServiceObject(Constants.BARRIER)).thenReturn(barrierService);
+		Mockito.when(TarzenServiceFactory.getServiceObject(Constants.PLAYER)).thenReturn(playerService);
+		Mockito.doNothing().when(playerService).arrangePlayerForGame(Mockito.isA(Game.class));
 		welcomeMenuActionsServiceImpl.organizeNewGame();
 	}
-	private Game formGameObject() {
-		Game game = new Game();
-		Map<Integer, Barrier> barrierMap = new HashMap<>();
-		barrierMap.put(1, createBarrier());
-		game.setBarrierMap(barrierMap);
-		game.setCurrentBarrier(createBarrier());
-		game.setPlayer(createPlayerDetails());
-		return game;
-	}
 
-	private Player createPlayerDetails() {
-		Player player = new Player();
-		player.setCountry("India");
-		player.setPlayerId("1");
-		player.setPlayerName("Jame");
-		player.setPower(400);
-		player.setTotalLoot(240);
-		return player;
-	}
-
-	private Barrier createBarrier() {
-		Barrier barrier = new Barrier();
-		barrier.setBarrierNumber(1);
-		barrier.setBonus(100);
-		barrier.setCapacity(300);
-		return barrier;
-	}
 }

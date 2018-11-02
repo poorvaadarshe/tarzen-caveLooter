@@ -2,6 +2,12 @@ package com.tarzen.cavelooter.entity;
 
 import java.util.Map;
 
+/**
+ * @author Poorva Adarshe
+ * 
+ * Entity class holding Game Details.
+ *
+ */
 public class Game {
 	
 	private Player player;

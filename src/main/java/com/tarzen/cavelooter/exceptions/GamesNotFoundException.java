@@ -4,7 +4,7 @@
 package com.tarzen.cavelooter.exceptions;
 
 /**
- *
+ * This exception is thrown when there are no games to show.
  */
 public class GamesNotFoundException extends Exception {
 

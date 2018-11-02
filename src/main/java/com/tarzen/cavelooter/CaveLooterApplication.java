@@ -1,5 +1,6 @@
 package com.tarzen.cavelooter;
 
+import com.tarzen.cavelooter.menu.navigator.IMenuNavigator;
 import com.tarzen.cavelooter.menu.navigator.WelcomeMenuNavigator;
 
 /**
@@ -12,7 +13,7 @@ import com.tarzen.cavelooter.menu.navigator.WelcomeMenuNavigator;
 public class CaveLooterApplication {
 
 	public static void main(String[] args) {
-		WelcomeMenuNavigator userMenuService = new WelcomeMenuNavigator();
+		IMenuNavigator userMenuService = new WelcomeMenuNavigator();
 		userMenuService.startApp();
 	}
 }

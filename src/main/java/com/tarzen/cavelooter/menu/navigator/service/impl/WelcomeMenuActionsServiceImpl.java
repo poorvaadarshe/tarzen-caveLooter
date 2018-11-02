@@ -1,16 +1,14 @@
 package com.tarzen.cavelooter.menu.navigator.service.impl;
 
+import com.tarzen.cavelooter.constants.Constants;
 import com.tarzen.cavelooter.entity.Game;
 import com.tarzen.cavelooter.entity.Player;
+import com.tarzen.cavelooter.factory.TarzenServiceFactory;
 import com.tarzen.cavelooter.menu.navigator.service.WelcomeMenuActionsService;
 import com.tarzen.cavelooter.service.BarrierService;
 import com.tarzen.cavelooter.service.GameActionsService;
 import com.tarzen.cavelooter.service.GameService;
 import com.tarzen.cavelooter.service.PlayerService;
-import com.tarzen.cavelooter.service.impl.BarrierServiceImpl;
-import com.tarzen.cavelooter.service.impl.GameActionsServiceImpl;
-import com.tarzen.cavelooter.service.impl.GameServiceImpl;
-import com.tarzen.cavelooter.service.impl.PlayerServiceImpl;
 import com.tarzen.cavelooter.util.UserInputReader;
 
 /**
@@ -21,24 +19,17 @@ import com.tarzen.cavelooter.util.UserInputReader;
  */
 public class WelcomeMenuActionsServiceImpl implements WelcomeMenuActionsService {
 
-	private GameActionsService gameManuService = new GameActionsServiceImpl();
-
-	private PlayerService playerService = new PlayerServiceImpl();
-
-	private GameService gameService = new GameServiceImpl();
-
-	private BarrierService barrierService = new BarrierServiceImpl();
-
+	
 	/**
 	 * loads last played game with all details.
 	 */
 	@Override
 	public void resumeLastPlayedGame() {
-		Game lastGame = gameService.loadLastPlayedGame();
+		Game lastGame = getGameService().loadLastPlayedGame();
 		if (null != lastGame) {
 			System.out.println("Loading your game...");
 			System.out.println(lastGame);
-			gameManuService.playGame(lastGame, true);
+			getGameActionsService().playGame(lastGame, true);
 			secureGame(lastGame);
 		}
 	}
@@ -54,7 +45,7 @@ public class WelcomeMenuActionsServiceImpl implements WelcomeMenuActionsService 
 		} else {
 			isPausedGame = true;
 		}
-		gameService.saveGame(game, isPausedGame);
+		getGameService().saveGame(game, isPausedGame);
 
 	}
 
@@ -65,11 +56,11 @@ public class WelcomeMenuActionsServiceImpl implements WelcomeMenuActionsService 
 	public void organizeNewGame() {
 		System.out.println("Organizing your game...");
 		Game game = new Game();
-		playerService.arrangePlayerForGame(game);
+		getPlayerService().arrangePlayerForGame(game);
 		if (null != game.getPlayer()) {
-			barrierService.organizeBarriers(game);
+			getBarrierService().organizeBarriers(game);
 			System.out.println("Barrier loaded of capacity :" + game.getCurrentBarrier().getCapacity());
-			gameManuService.playGame(game, false);
+			getGameActionsService().playGame(game, false);
 			secureGame(game);
 		}
 	}
@@ -109,7 +100,7 @@ public class WelcomeMenuActionsServiceImpl implements WelcomeMenuActionsService 
 	@Override
 	public void createPlayerProfile() {
 		Player player = getPlayerDetails();
-		playerService.savePlayerProfile(player);
+		getPlayerService().savePlayerProfile(player);
 	}
 
 	/**
@@ -117,7 +108,7 @@ public class WelcomeMenuActionsServiceImpl implements WelcomeMenuActionsService 
 	 */
 	@Override
 	public void viewAllPlayers() {
-		playerService.viewAllPlayers();
+		getPlayerService().viewAllPlayers();
 	}
 
 	/**
@@ -125,8 +116,25 @@ public class WelcomeMenuActionsServiceImpl implements WelcomeMenuActionsService 
 	 */
 	@Override
 	public void viewGameHistory() {
-		gameService.viewAllGames();
+     getGameService().viewAllGames();
 
 	}
+	
+	private GameActionsService getGameActionsService() {
+		return (GameActionsService)TarzenServiceFactory.getServiceObject(Constants.GAME_ACTION);
+	}
+
+	private PlayerService getPlayerService() {
+		return (PlayerService) TarzenServiceFactory.getServiceObject(Constants.PLAYER);
+	}
+
+	private GameService getGameService() {
+		return (GameService)TarzenServiceFactory.getServiceObject(Constants.GAME);
+	}
+
+	private BarrierService getBarrierService() {
+		return (BarrierService)TarzenServiceFactory.getServiceObject(Constants.BARRIER);
+	}
+
 
 }

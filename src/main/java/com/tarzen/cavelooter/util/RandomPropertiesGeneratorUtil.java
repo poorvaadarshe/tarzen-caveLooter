@@ -2,6 +2,13 @@ package com.tarzen.cavelooter.util;
 
 import java.util.Random;
 
+/**
+ * 
+ * @author Poorva Adarshe
+ * 
+ * This class is responsible to generate random numbers within provided range of integers.
+ *
+ */
 public class RandomPropertiesGeneratorUtil {
 
 	private static Random randomNumber = new Random();

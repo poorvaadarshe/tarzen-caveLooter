@@ -12,12 +12,13 @@ import com.tarzen.cavelooter.util.UserInputReader;
  * navigate to respective API based on user's choice.
  *
  */
-public class WelcomeMenuNavigator {
+public class WelcomeMenuNavigator implements IMenuNavigator{
 
 	int userChoice = 0;
 	
 	private WelcomeMenuActionsService welcomeMenuService = new WelcomeMenuActionsServiceImpl();
 	
+	@Override
 	public void startApp() {
 		do {
 			MenuEnum.MAIN_MENU_OPTIONS.getMenuProperties().forEach((menuOption)->{

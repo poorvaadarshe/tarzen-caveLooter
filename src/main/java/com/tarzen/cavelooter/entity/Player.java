@@ -2,8 +2,10 @@
  * 
  */
 package com.tarzen.cavelooter.entity;
-
 /**
+ * @author Poorva Adarshe
+ * 
+ * Entity class holding Player's properties.
  *
  */
 public class Player {

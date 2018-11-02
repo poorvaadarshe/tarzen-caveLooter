@@ -1,5 +1,6 @@
 package com.tarzen.cavelooter.factory;
 
+import com.tarzen.cavelooter.constants.Constants;
 import com.tarzen.cavelooter.service.impl.BarrierServiceImpl;
 import com.tarzen.cavelooter.service.impl.GameActionsServiceImpl;
 import com.tarzen.cavelooter.service.impl.GameRefereeServiceImpl;
@@ -7,10 +8,8 @@ import com.tarzen.cavelooter.service.impl.GameServiceImpl;
 import com.tarzen.cavelooter.service.impl.PlayerServiceImpl;
 
 /**
- * This are factory class used to created the services
+ * Responsible to create and return object of requested service class.
  * 
- * @author
- *
  */
 public class TarzenServiceFactory {
 
@@ -18,16 +17,16 @@ public class TarzenServiceFactory {
 
 	}
 
-	public static Object getService(String str) {
-		if (str.equals("game")) {
+	public static Object getServiceObject(String serviceName) {
+		if (Constants.GAME.equalsIgnoreCase(serviceName)) {
 			return new GameServiceImpl();
-		} else if (str.equals("player")) {
+		} else if (Constants.PLAYER.equalsIgnoreCase(serviceName)) {
 			return new PlayerServiceImpl();
-		} else if (str.equals("barrier")) {
+		} else if (Constants.BARRIER.equalsIgnoreCase(serviceName)) {
 			return new BarrierServiceImpl();
-		} else if (str.equals("gameAction")) {
+		} else if (Constants.GAME_ACTION.equalsIgnoreCase(serviceName)) {
 			return new GameActionsServiceImpl();
-		} else if (str.equals("GameReferee")) {
+		} else if (Constants.GAME_REFEREE.equalsIgnoreCase(serviceName)) {
 			return new GameRefereeServiceImpl();
 		}
 		return null;

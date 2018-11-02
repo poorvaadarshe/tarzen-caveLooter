@@ -2,6 +2,7 @@ package com.tarzen.cavelooter.service.impl;
 
 import java.util.Map;
 
+import com.tarzen.cavelooter.constants.Constants;
 import com.tarzen.cavelooter.dao.PlayerDao;
 import com.tarzen.cavelooter.entity.Game;
 import com.tarzen.cavelooter.entity.Player;
@@ -57,8 +58,8 @@ public class PlayerServiceImpl implements PlayerService {
 				showPlayers(players);
 				System.out.println("Please select playerId for your game::");
 				String playerId = UserInputReader.readStringInput();
-				getPlayerDao().getPlayerById(playerId);
 				isInvalidPlayerIdChosen = true;
+				getPlayerDao().getPlayerById(playerId);
 				player = new Player(getPlayerDao().getPlayerById(playerId));
 				game.setPlayer(player);
 			} else {
@@ -74,7 +75,7 @@ public class PlayerServiceImpl implements PlayerService {
 	}
 
 	private PlayerDao getPlayerDao() {
-		return (PlayerDao) TarzenPersistanceFactory.getService("player");
+		return (PlayerDao) TarzenPersistanceFactory.getDaoObject(Constants.PLAYER);
 	}
 	
 	

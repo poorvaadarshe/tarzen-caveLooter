@@ -8,14 +8,14 @@ import com.tarzen.cavelooter.entity.Game;
 import com.tarzen.cavelooter.exceptions.GamesNotFoundException;
 
 /**
- * This class is responsible to hold Games data and perform basic and necessary
+ * This Repository class is responsible to hold Games data and perform basic and necessary
  * CRUD operations for the application.
  * 
  */
 public class GameDaoImpl implements GameDao {
 
-	private List<Game> games = new ArrayList<>();
-	private Game pausedGame;
+	private static List<Game> games = new ArrayList<>();
+	private static Game pausedGame;
 
 	@Override
 	public void saveGame(Game game, boolean isPausedGame) {

@@ -7,7 +7,9 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- *
+ * Class to hold menu options list.
+ * 
+ * Single point of modification if any change in textual representation of menu such as - adding or removing a feature.
  */
 public enum MenuEnum {
 	

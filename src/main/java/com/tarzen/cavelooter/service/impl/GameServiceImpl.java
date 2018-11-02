@@ -2,6 +2,7 @@ package com.tarzen.cavelooter.service.impl;
 
 import java.util.List;
 
+import com.tarzen.cavelooter.constants.Constants;
 import com.tarzen.cavelooter.dao.GameDao;
 import com.tarzen.cavelooter.entity.Game;
 import com.tarzen.cavelooter.entity.Player;
@@ -58,7 +59,7 @@ public class GameServiceImpl implements GameService {
 	}
 
 	private GameDao getGameDao() {
-		return (GameDao) TarzenPersistanceFactory.getService("game");
+		return (GameDao) TarzenPersistanceFactory.getDaoObject(Constants.GAME);
 	}
 
 }

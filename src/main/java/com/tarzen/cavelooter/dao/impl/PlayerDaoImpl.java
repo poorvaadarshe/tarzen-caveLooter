@@ -16,7 +16,7 @@ import com.tarzen.cavelooter.exceptions.PlayerProfileAlreadyExistsException;
  */
 public class PlayerDaoImpl implements PlayerDao {
 
-	private final Map<String, Player> playerProfiles = new HashMap<>();
+	private static Map<String, Player> playerProfiles = new HashMap<>();
 
 	@Override
 	public void savePlayerProfile(Player player) throws PlayerProfileAlreadyExistsException {

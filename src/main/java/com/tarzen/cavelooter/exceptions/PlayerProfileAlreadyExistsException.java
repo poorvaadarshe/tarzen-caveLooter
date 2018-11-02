@@ -1,5 +1,9 @@
 package com.tarzen.cavelooter.exceptions;
 
+/**
+ * This exception is thrown when duplicate player profile is being created.
+ *
+ */
 public class PlayerProfileAlreadyExistsException extends Exception {
 
 	/**

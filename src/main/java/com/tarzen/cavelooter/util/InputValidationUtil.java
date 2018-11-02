@@ -1,5 +1,12 @@
 package com.tarzen.cavelooter.util;
 
+/**
+ * 
+ * @author Poorva Adarshe
+ * 
+ * Validates input values and handles NumberFormatException.
+ *
+ */
 public class InputValidationUtil {
 	public static int validateInputValue(String menuInput) {
 		try {

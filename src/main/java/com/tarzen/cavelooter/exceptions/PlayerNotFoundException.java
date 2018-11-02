@@ -4,7 +4,7 @@
 package com.tarzen.cavelooter.exceptions;
 
 /**
- *
+ * This exception is thrown when no player exists.
  */
 public class PlayerNotFoundException extends Exception {
 

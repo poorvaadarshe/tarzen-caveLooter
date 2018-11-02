@@ -1,8 +1,9 @@
 package com.tarzen.cavelooter.entity;
 
 /**
- * 
  * @author Poorva Adarshe
+ * 
+ * Entity class holding Barrier information.
  *
  */
 public class Barrier {

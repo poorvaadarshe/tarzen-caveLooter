@@ -2,6 +2,7 @@ package com.tarzen.cavelooter.service.impl;
 
 import java.util.Map;
 
+import com.tarzen.cavelooter.constants.Constants;
 import com.tarzen.cavelooter.dao.BarrierDao;
 import com.tarzen.cavelooter.entity.Barrier;
 import com.tarzen.cavelooter.entity.Game;
@@ -22,6 +23,6 @@ public class BarrierServiceImpl implements BarrierService {
 	}
 
 	private BarrierDao getBarrierDao() {
-		return (BarrierDao) TarzenPersistanceFactory.getService("barrier");
+		return (BarrierDao) TarzenPersistanceFactory.getDaoObject(Constants.BARRIER);
 	}
 }
