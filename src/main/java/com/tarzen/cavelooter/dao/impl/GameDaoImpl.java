@@ -16,15 +16,14 @@ public class GameDaoImpl implements GameDao {
 
 	private List<Game> games = new ArrayList<>();
 	private Game pausedGame;
-	
-	
 
 	@Override
 	public void saveGame(Game game, boolean isPausedGame) {
 		if (isPausedGame) {
 			pausedGame = game;
+		} else {
+			games.add(game);
 		}
-		games.add(game);
 	}
 
 	@Override
@@ -32,7 +31,7 @@ public class GameDaoImpl implements GameDao {
 		if (!games.isEmpty()) {
 			return games;
 		} else {
-			throw new GamesNotFoundException("Please avail Play Game feature first.");
+			throw new GamesNotFoundException("No Games history found! Please finish your game to see in history.");
 		}
 	}
 
@@ -41,7 +40,7 @@ public class GameDaoImpl implements GameDao {
 		if (null != pausedGame) {
 			return pausedGame;
 		} else {
-			throw new GamesNotFoundException("No Game played or paused yet.");
+			throw new GamesNotFoundException("No Game paused yet.");
 		}
 	}
 }

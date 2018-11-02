@@ -5,6 +5,7 @@ import java.util.List;
 import com.tarzen.cavelooter.dao.GameDao;
 import com.tarzen.cavelooter.dao.impl.GameDaoImpl;
 import com.tarzen.cavelooter.entity.Game;
+import com.tarzen.cavelooter.entity.Player;
 import com.tarzen.cavelooter.exceptions.GamesNotFoundException;
 import com.tarzen.cavelooter.service.GameService;
 
@@ -27,13 +28,22 @@ public class GameServiceImpl implements GameService {
 		try {
 			List<Game> games = gameDao.getAllGames();
 			games.forEach(game -> {
-				System.out.println(game);
+				readGameStatus(game);
 			});
 		} catch (GamesNotFoundException e) {
 			System.out.println(e.getMessage());
 		}
 	}
 
+	private void readGameStatus(Game game) {
+		Player player = game.getPlayer();
+		if(game.isGameOver()) {
+			System.out.println(player.getPlayerName()+"("+player.getCountry()+") has completed the loot grabbing $"+player.getTotalLoot());
+		}else {
+			System.out.println(player.getPlayerName()+"("+player.getCountry()+") has crossed "+(game.getCurrentBarrier().getBarrierNumber()-1)+" barriers, looted $"+player.getTotalLoot()+
+					" and remaining power is "+player.getPower()+" Current barrier's capacity is : "+game.getCurrentBarrier().getCapacity());
+		}
+	}
 	@Override
 	public Game loadLastPlayedGame() {
 		Game game = null;

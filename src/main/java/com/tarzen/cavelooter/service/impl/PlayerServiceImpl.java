@@ -68,6 +68,7 @@ public class PlayerServiceImpl implements PlayerService {
 			}
 		} catch (PlayerNotFoundException e) {
 			System.out.println(e.getMessage());
+			arrangePlayerForGame(game);
 		}
 	}
 }

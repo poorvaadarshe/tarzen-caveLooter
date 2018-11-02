@@ -26,7 +26,7 @@ public class GameRefereeServiceImpl implements GameRefereeService {
 		barrier.setCapacity(barrier.getCapacity() - powerToReduce);
 		player.setPower(player.getPower() - powerToReduce);
 
-		if (player.getPower() == 0 && barrier.getCapacity() <= 0 && isLastBarrier(barrier)) {
+		if (player.getPower() == 0 && barrier.getCapacity() <= 0 && isLastBarrier(game)) {
 			System.out.println("Glad you completed the loot but, you consumed your all power!");
 			game.setGameOver(true);
 			return;
@@ -38,8 +38,9 @@ public class GameRefereeServiceImpl implements GameRefereeService {
 					"Bingo! you broke the barrier " + barrier.getBarrierNumber() + " & looted $" + barrier.getBonus());
 			player.setTotalLoot(player.getTotalLoot() + barrier.getBonus());
 
-			if (isLastBarrier(barrier)) {
+			if (isLastBarrier(game)) {
 				game.setGameOver(true);
+				return;
 			} else {
 				loadNextBarrier(game);
 			}
@@ -52,11 +53,10 @@ public class GameRefereeServiceImpl implements GameRefereeService {
 	private void loadNextBarrier(Game game) {
 		System.out.println("loading your next barrier...");
 		game.setCurrentBarrier(game.getBarrierMap().get(game.getCurrentBarrier().getBarrierNumber() + 1));
-		System.out.println("Barrier loaded with capacity : " + game.getCurrentBarrier().getCapacity());
 	}
 
-	private boolean isLastBarrier(Barrier currentBarrier) {
-		return currentBarrier.getBarrierNumber() == 3;
+	private boolean isLastBarrier(Game game) {
+		return game.getCurrentBarrier().getBarrierNumber() == game.getBarrierMap().size();
 	}
 
 	private boolean isPlayerDead(Player player) {

@@ -24,12 +24,12 @@ public class PlayerDaoImplTest {
 	}
 
 	@Test
-	public void savePlayerProfileTest() throws PlayerProfileAlreadyExistsException {
+	public void savePlayerProfileTest() throws PlayerProfileAlreadyExistsException, PlayerNotFoundException {
 		playerDaoImpl.savePlayerProfile(createPlayerDetails());
 	}
 
 	@Test(expected = PlayerProfileAlreadyExistsException.class)
-	public void savePlayerProfileExceptionTest() throws PlayerProfileAlreadyExistsException {
+	public void savePlayerProfileExceptionTest() throws PlayerProfileAlreadyExistsException, PlayerNotFoundException {
 		savePlayerProfileTest();
 		playerDaoImpl.savePlayerProfile(createPlayerDetails());
 	}
@@ -37,27 +37,28 @@ public class PlayerDaoImplTest {
 	@Test
 	public void getPlayerTest() throws PlayerNotFoundException, PlayerProfileAlreadyExistsException {
 		savePlayerProfileTest();
-		Player player=playerDaoImpl.getPlayerById("1");
+		Player player = playerDaoImpl.getPlayerById("1");
 		Assert.assertEquals("Jame", player.getPlayerName());
 	}
-	
-	@Test(expected=PlayerNotFoundException.class)
+
+	@Test(expected = PlayerNotFoundException.class)
 	public void getPlayerTestException() throws PlayerNotFoundException, PlayerProfileAlreadyExistsException {
 		savePlayerProfileTest();
 		playerDaoImpl.getPlayerById("3");
 	}
-	
+
 	@Test
 	public void getAllPlayersTest() throws PlayerNotFoundException, PlayerProfileAlreadyExistsException {
 		savePlayerProfileTest();
-		 Map<String, Player> map=playerDaoImpl.getAllPlayers();
-		 Assert.assertEquals(1,map.size());
+		Map<String, Player> map = playerDaoImpl.getAllPlayers();
+		Assert.assertEquals(1, map.size());
 	}
-	
-	@Test(expected=PlayerNotFoundException.class)
+
+	@Test(expected = PlayerNotFoundException.class)
 	public void getAllPlayersTestException() throws PlayerNotFoundException {
 		playerDaoImpl.getAllPlayers();
 	}
+
 	private Player createPlayerDetails() {
 		Player player = new Player();
 		player.setCountry("India");

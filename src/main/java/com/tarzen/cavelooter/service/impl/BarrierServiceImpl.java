@@ -8,6 +8,10 @@ import com.tarzen.cavelooter.entity.Barrier;
 import com.tarzen.cavelooter.entity.Game;
 import com.tarzen.cavelooter.service.BarrierService;
 
+/**
+ * This class responsible to load and initialize barriers in the Game
+ *
+ */
 public class BarrierServiceImpl implements BarrierService {
 
 	private BarrierDao barrierDao = new BarrierDaoImpl();

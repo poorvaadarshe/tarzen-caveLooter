@@ -64,7 +64,7 @@ public class Game {
 	 */
 	@Override
 	public String toString() {
-		return "Player "+player.getPlayerName()+" from country: "+player.getCountry()+" has crossed "+(currentBarrier.getBarrierNumber()-1)+" Barriers and looted $$"+player.getTotalLoot()+" Remaining power : "+player.getPower();
+		return player.getPlayerName()+"("+player.getCountry()+") is on barrier "+currentBarrier.getBarrierNumber()+" and looted $"+player.getTotalLoot()+" Remaining power : "+player.getPower();
 	}
 	/* (non-Javadoc)
 	 * @see java.lang.Object#hashCode()
