@@ -1,7 +1,5 @@
 package com.tarzen.cavelooter.dao;
 
-import java.util.Map;
-
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -24,41 +22,37 @@ public class PlayerDaoImplTest {
 	}
 
 	@Test
-	public void savePlayerProfileTest() throws PlayerProfileAlreadyExistsException, PlayerNotFoundException {
+	public void savePlayerProfileTest() throws PlayerProfileAlreadyExistsException {
 		playerDaoImpl.savePlayerProfile(createPlayerDetails());
 	}
 
 	@Test(expected = PlayerProfileAlreadyExistsException.class)
-	public void savePlayerProfileExceptionTest() throws PlayerProfileAlreadyExistsException, PlayerNotFoundException {
-		savePlayerProfileTest();
+	public void savePlayerProfileExceptionTest() throws PlayerProfileAlreadyExistsException {
 		playerDaoImpl.savePlayerProfile(createPlayerDetails());
 	}
 
 	@Test
 	public void getPlayerTest() throws PlayerNotFoundException, PlayerProfileAlreadyExistsException {
-		savePlayerProfileTest();
-		Player player = playerDaoImpl.getPlayerById("1");
+		Player player=playerDaoImpl.getPlayerById("1");
 		Assert.assertEquals("Jame", player.getPlayerName());
 	}
-
-	@Test(expected = PlayerNotFoundException.class)
+	
+	@Test(expected=PlayerNotFoundException.class)
 	public void getPlayerTestException() throws PlayerNotFoundException, PlayerProfileAlreadyExistsException {
-		savePlayerProfileTest();
 		playerDaoImpl.getPlayerById("3");
 	}
-
+	
 	@Test
 	public void getAllPlayersTest() throws PlayerNotFoundException, PlayerProfileAlreadyExistsException {
 		savePlayerProfileTest();
-		Map<String, Player> map = playerDaoImpl.getAllPlayers();
-		Assert.assertEquals(1, map.size());
+		 Assert.assertNotNull(playerDaoImpl.getAllPlayers());
 	}
-
-	@Test(expected = PlayerNotFoundException.class)
+	
+	@Test(expected=PlayerNotFoundException.class)
 	public void getAllPlayersTestException() throws PlayerNotFoundException {
+		playerDaoImpl.getAllPlayers().clear();
 		playerDaoImpl.getAllPlayers();
 	}
-
 	private Player createPlayerDetails() {
 		Player player = new Player();
 		player.setCountry("India");

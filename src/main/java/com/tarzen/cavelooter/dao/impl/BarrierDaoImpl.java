@@ -18,7 +18,7 @@ import com.tarzen.cavelooter.util.RandomPropertiesGeneratorUtil;
  */
 public class BarrierDaoImpl implements BarrierDao {
 
-	private final Map<Integer, Barrier> barriers = new HashMap<>();
+	private static final Map<Integer, Barrier> barriers = new HashMap<>();
 
 	@Override
 	public Barrier getBarrier(int barrierNumber) {

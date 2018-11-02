@@ -3,9 +3,9 @@ package com.tarzen.cavelooter.service.impl;
 import java.util.Map;
 
 import com.tarzen.cavelooter.dao.BarrierDao;
-import com.tarzen.cavelooter.dao.impl.BarrierDaoImpl;
 import com.tarzen.cavelooter.entity.Barrier;
 import com.tarzen.cavelooter.entity.Game;
+import com.tarzen.cavelooter.factory.TarzenPersistanceFactory;
 import com.tarzen.cavelooter.service.BarrierService;
 
 /**
@@ -14,12 +14,14 @@ import com.tarzen.cavelooter.service.BarrierService;
  */
 public class BarrierServiceImpl implements BarrierService {
 
-	private BarrierDao barrierDao = new BarrierDaoImpl();
-	
 	@Override
 	public void organizeBarriers(Game game) {
-		Map<Integer,Barrier> barriers = barrierDao.loadBarriers();
+		Map<Integer, Barrier> barriers = getBarrierDao().loadBarriers();
 		game.setBarrierMap(barriers);
 		game.setCurrentBarrier(barriers.get(1));
+	}
+
+	private BarrierDao getBarrierDao() {
+		return (BarrierDao) TarzenPersistanceFactory.getService("barrier");
 	}
 }
