@@ -19,7 +19,6 @@ import com.tarzen.cavelooter.util.UserInputReader;
  */
 public class WelcomeMenuActionsServiceImpl implements WelcomeMenuActionsService {
 
-	
 	/**
 	 * loads last played game with all details.
 	 */
@@ -30,6 +29,7 @@ public class WelcomeMenuActionsServiceImpl implements WelcomeMenuActionsService 
 			System.out.println("Loading your game...");
 			System.out.println(lastGame);
 			getGameActionsService().playGame(lastGame, true);
+			getGameService().completePausedGame();
 			secureGame(lastGame);
 		}
 	}
@@ -67,6 +67,7 @@ public class WelcomeMenuActionsServiceImpl implements WelcomeMenuActionsService 
 
 	/**
 	 * Gets user inputs to create player profile.
+	 * 
 	 * @return
 	 */
 	public Player getPlayerDetails() {
@@ -83,6 +84,7 @@ public class WelcomeMenuActionsServiceImpl implements WelcomeMenuActionsService 
 
 	/**
 	 * takes valid user input for player's power.
+	 * 
 	 * @param player
 	 */
 	private void getPlayerPower(Player player) {
@@ -116,12 +118,12 @@ public class WelcomeMenuActionsServiceImpl implements WelcomeMenuActionsService 
 	 */
 	@Override
 	public void viewGameHistory() {
-     getGameService().viewAllGames();
+		getGameService().viewAllGames();
 
 	}
-	
+
 	private GameActionsService getGameActionsService() {
-		return (GameActionsService)TarzenServiceFactory.getServiceObject(Constants.GAME_ACTION);
+		return (GameActionsService) TarzenServiceFactory.getServiceObject(Constants.GAME_ACTION);
 	}
 
 	private PlayerService getPlayerService() {
@@ -129,12 +131,11 @@ public class WelcomeMenuActionsServiceImpl implements WelcomeMenuActionsService 
 	}
 
 	private GameService getGameService() {
-		return (GameService)TarzenServiceFactory.getServiceObject(Constants.GAME);
+		return (GameService) TarzenServiceFactory.getServiceObject(Constants.GAME);
 	}
 
 	private BarrierService getBarrierService() {
-		return (BarrierService)TarzenServiceFactory.getServiceObject(Constants.BARRIER);
+		return (BarrierService) TarzenServiceFactory.getServiceObject(Constants.BARRIER);
 	}
-
 
 }

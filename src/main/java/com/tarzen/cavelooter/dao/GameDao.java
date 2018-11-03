@@ -12,4 +12,6 @@ public interface GameDao {
 	List<Game> getAllGames() throws GamesNotFoundException;
 	
 	Game getPausedGame() throws GamesNotFoundException;
+	
+	void resetPausedGameOnGameOver();
 }

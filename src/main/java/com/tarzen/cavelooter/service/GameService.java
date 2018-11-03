@@ -9,4 +9,6 @@ public interface GameService {
 	void viewAllGames();
 	
 	Game loadLastPlayedGame();
+	
+	void completePausedGame();
 }

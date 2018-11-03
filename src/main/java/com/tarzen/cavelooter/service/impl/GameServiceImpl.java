@@ -57,9 +57,16 @@ public class GameServiceImpl implements GameService {
 		}
 		return game;
 	}
+	
+
+	@Override
+	public void completePausedGame() {
+		getGameDao().resetPausedGameOnGameOver();
+	}
 
 	private GameDao getGameDao() {
 		return (GameDao) TarzenPersistanceFactory.getDaoObject(Constants.GAME);
 	}
+
 
 }

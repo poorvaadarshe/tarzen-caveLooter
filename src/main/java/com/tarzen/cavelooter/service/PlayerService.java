@@ -9,6 +9,6 @@ public interface PlayerService {
 	
 	void viewAllPlayers();
 	
-	public void arrangePlayerForGame(Game game);
+	void arrangePlayerForGame(Game game);
 
 }

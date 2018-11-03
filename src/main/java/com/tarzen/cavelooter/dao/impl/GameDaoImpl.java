@@ -40,7 +40,14 @@ public class GameDaoImpl implements GameDao {
 		if (null != pausedGame) {
 			return pausedGame;
 		} else {
-			throw new GamesNotFoundException("No Game paused yet.");
+			throw new GamesNotFoundException("No Game is paused.");
+		}
+	}
+
+	@Override
+	public void resetPausedGameOnGameOver() {
+		if(null != pausedGame && pausedGame.isGameOver()) {
+			pausedGame = null;
 		}
 	}
 }
