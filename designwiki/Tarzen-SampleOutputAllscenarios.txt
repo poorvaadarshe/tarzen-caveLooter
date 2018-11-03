@@ -1,0 +1,465 @@
+D:\tarzen-caveLooter\target>java -jar Tarzen-Cavelooter-0.0.1-SNAPSHOT.jar
+****CAVE LOOTER GAME****
+1. Create Player profile
+2. Play Game
+3. View All Players
+4. View Game History
+5. Resume last played Game
+6. Exit Game
+Enter your choice :
+1
+Player Id:
+1
+Player Name:
+nisha
+Country:
+canada
+Power:
+800
+Profile created!
+****CAVE LOOTER GAME****
+1. Create Player profile
+2. Play Game
+3. View All Players
+4. View Game History
+5. Resume last played Game
+6. Exit Game
+Enter your choice :
+5
+No Game is paused.
+****CAVE LOOTER GAME****
+1. Create Player profile
+2. Play Game
+3. View All Players
+4. View Game History
+5. Resume last played Game
+6. Exit Game
+Enter your choice :
+2
+Organizing your game...
+Barrier loaded of capacity :100
+Choose your action::
+1. Punch(30)
+2. Push(20)
+3. Kick(50)
+4. Save & Exit
+Enter action number :
+3
+barrier capacity ::50
+your power::750
+Choose your action::
+1. Punch(30)
+2. Push(20)
+3. Kick(50)
+4. Save & Exit
+Enter action number :
+4
+saving your game...
+****CAVE LOOTER GAME****
+1. Create Player profile
+2. Play Game
+3. View All Players
+4. View Game History
+5. Resume last played Game
+6. Exit Game
+Enter your choice :
+4
+No Games history found! Please finish your game to see in history.
+****CAVE LOOTER GAME****
+1. Create Player profile
+2. Play Game
+3. View All Players
+4. View Game History
+5. Resume last played Game
+6. Exit Game
+Enter your choice :
+5
+Loading your game...
+nisha(canada) is on barrier 1 and looted $0 Remaining power : 750
+Choose your action::
+1. Punch(30)
+2. Push(20)
+3. Kick(50)
+4. Save & Exit
+Enter action number :
+3
+Bingo! you broke the barrier 1 & looted $450
+loading your next barrier...
+barrier capacity ::156
+your power::700
+Choose your action::
+1. Punch(30)
+2. Push(20)
+3. Kick(50)
+4. Save & Exit
+Enter action number :
+3
+barrier capacity ::106
+your power::650
+Choose your action::
+1. Punch(30)
+2. Push(20)
+3. Kick(50)
+4. Save & Exit
+Enter action number :
+3
+barrier capacity ::56
+your power::600
+Choose your action::
+1. Punch(30)
+2. Push(20)
+3. Kick(50)
+4. Save & Exit
+Enter action number :
+1
+barrier capacity ::26
+your power::570
+Choose your action::
+1. Punch(30)
+2. Push(20)
+3. Kick(50)
+4. Save & Exit
+Enter action number :
+1
+Bingo! you broke the barrier 2 & looted $200
+loading your next barrier...
+barrier capacity ::202
+your power::540
+Choose your action::
+1. Punch(30)
+2. Push(20)
+3. Kick(50)
+4. Save & Exit
+Enter action number :
+3
+barrier capacity ::152
+your power::490
+Choose your action::
+1. Punch(30)
+2. Push(20)
+3. Kick(50)
+4. Save & Exit
+Enter action number :
+3
+barrier capacity ::102
+your power::440
+Choose your action::
+1. Punch(30)
+2. Push(20)
+3. Kick(50)
+4. Save & Exit
+Enter action number :
+3
+barrier capacity ::52
+your power::390
+Choose your action::
+1. Punch(30)
+2. Push(20)
+3. Kick(50)
+4. Save & Exit
+Enter action number :
+1
+barrier capacity ::22
+your power::360
+Choose your action::
+1. Punch(30)
+2. Push(20)
+3. Kick(50)
+4. Save & Exit
+Enter action number :
+1
+Bingo! you broke the barrier 3 & looted $1050
+Excellent!! You completed the Cave Loot with $1700
+****CAVE LOOTER GAME****
+1. Create Player profile
+2. Play Game
+3. View All Players
+4. View Game History
+5. Resume last played Game
+6. Exit Game
+Enter your choice :
+5
+No Game is paused
+****CAVE LOOTER GAME****
+1. Create Player profile
+2. Play Game
+3. View All Players
+4. View Game History
+5. Resume last played Game
+6. Exit Game
+Enter your choice :
+3
+Player Id : 1 Player Name : nisha Country : canada Power : 800
+****CAVE LOOTER GAME****
+1. Create Player profile
+2. Play Game
+3. View All Players
+4. View Game History
+5. Resume last played Game
+6. Exit Game
+Enter your choice :
+4
+nisha(canada) has completed the loot grabbing $1700
+****CAVE LOOTER GAME****
+1. Create Player profile
+2. Play Game
+3. View All Players
+4. View Game History
+5. Resume last played Game
+6. Exit Game
+Enter your choice :
+5
+No Game is paused
+****CAVE LOOTER GAME****
+1. Create Player profile
+2. Play Game
+3. View All Players
+4. View Game History
+5. Resume last played Game
+6. Exit Game
+Enter your choice :
+1
+Player Id:
+2
+Player Name:
+manju
+Country:
+america
+Power:
+1900
+Profile created!
+****CAVE LOOTER GAME****
+1. Create Player profile
+2. Play Game
+3. View All Players
+4. View Game History
+5. Resume last played Game
+6. Exit Game
+Enter your choice :
+2
+Organizing your game...
+Multiple player profiles found :
+Player Id : 1 Player Name : nisha Country : canada Power : 800
+Player Id : 2 Player Name : manju Country : america Power : 1900
+Please select playerId for your game::
+WW
+No player with such playerId exists.
+Multiple player profiles found :
+Player Id : 1 Player Name : nisha Country : canada Power : 800
+Player Id : 2 Player Name : manju Country : america Power : 1900
+Please select playerId for your game::
+$$
+No player with such playerId exists.
+Multiple player profiles found :
+Player Id : 1 Player Name : nisha Country : canada Power : 800
+Player Id : 2 Player Name : manju Country : america Power : 1900
+Please select playerId for your game::
+
+1
+Barrier loaded of capacity :101
+Choose your action::
+1. Punch(30)
+2. Push(20)
+3. Kick(50)
+4. Save & Exit
+Enter action number :
+3
+barrier capacity ::51
+your power::750
+Choose your action::
+1. Punch(30)
+2. Push(20)
+3. Kick(50)
+4. Save & Exit
+Enter action number :
+3
+barrier capacity ::1
+your power::700
+Choose your action::
+1. Punch(30)
+2. Push(20)
+3. Kick(50)
+4. Save & Exit
+Enter action number :
+4
+saving your game...
+****CAVE LOOTER GAME****
+1. Create Player profile
+2. Play Game
+3. View All Players
+4. View Game History
+5. Resume last played Game
+6. Exit Game
+Enter your choice :
+2
+Organizing your game...
+Multiple player profiles found :
+Player Id : 1 Player Name : nisha Country : canada Power : 800
+Player Id : 2 Player Name : manju Country : america Power : 1900
+Please select playerId for your game::
+2
+Barrier loaded of capacity :102
+Choose your action::
+1. Punch(30)
+2. Push(20)
+3. Kick(50)
+4. Save & Exit
+Enter action number :
+3
+barrier capacity ::52
+your power::1850
+Choose your action::
+1. Punch(30)
+2. Push(20)
+3. Kick(50)
+4. Save & Exit
+Enter action number :
+3
+barrier capacity ::2
+your power::1800
+Choose your action::
+1. Punch(30)
+2. Push(20)
+3. Kick(50)
+4. Save & Exit
+Enter action number :
+4
+saving your game...
+****CAVE LOOTER GAME****
+1. Create Player profile
+2. Play Game
+3. View All Players
+4. View Game History
+5. Resume last played Game
+6. Exit Game
+Enter your choice :
+4
+nisha(canada) has completed the loot grabbing $1700
+****CAVE LOOTER GAME****
+1. Create Player profile
+2. Play Game
+3. View All Players
+4. View Game History
+5. Resume last played Game
+6. Exit Game
+Enter your choice :
+3
+Player Id : 1 Player Name : nisha Country : canada Power : 800
+Player Id : 2 Player Name : manju Country : america Power : 1900
+****CAVE LOOTER GAME****
+1. Create Player profile
+2. Play Game
+3. View All Players
+4. View Game History
+5. Resume last played Game
+6. Exit Game
+Enter your choice :
+5
+Loading your game...
+manju(america) is on barrier 1 and looted $0 Remaining power : 1800
+Choose your action::
+1. Punch(30)
+2. Push(20)
+3. Kick(50)
+4. Save & Exit
+Enter action number :
+3
+Bingo! you broke the barrier 1 & looted $450
+loading your next barrier...
+barrier capacity ::149
+your power::1750
+Choose your action::
+1. Punch(30)
+2. Push(20)
+3. Kick(50)
+4. Save & Exit
+Enter action number :
+3
+barrier capacity ::99
+your power::1700
+Choose your action::
+1. Punch(30)
+2. Push(20)
+3. Kick(50)
+4. Save & Exit
+Enter action number :
+3
+barrier capacity ::49
+your power::1650
+Choose your action::
+1. Punch(30)
+2. Push(20)
+3. Kick(50)
+4. Save & Exit
+Enter action number :
+3
+Bingo! you broke the barrier 2 & looted $1150
+loading your next barrier...
+barrier capacity ::201
+your power::1600
+Choose your action::
+1. Punch(30)
+2. Push(20)
+3. Kick(50)
+4. Save & Exit
+Enter action number :
+3
+barrier capacity ::151
+your power::1550
+Choose your action::
+1. Punch(30)
+2. Push(20)
+3. Kick(50)
+4. Save & Exit
+Enter action number :
+3
+barrier capacity ::101
+your power::1500
+Choose your action::
+1. Punch(30)
+2. Push(20)
+3. Kick(50)
+4. Save & Exit
+Enter action number :
+3
+barrier capacity ::51
+your power::1450
+Choose your action::
+1. Punch(30)
+2. Push(20)
+3. Kick(50)
+4. Save & Exit
+Enter action number :
+1
+barrier capacity ::21
+your power::1420
+Choose your action::
+1. Punch(30)
+2. Push(20)
+3. Kick(50)
+4. Save & Exit
+Enter action number :
+1
+Bingo! you broke the barrier 3 & looted $550
+Excellent!! You completed the Cave Loot with $2150
+****CAVE LOOTER GAME****
+1. Create Player profile
+2. Play Game
+3. View All Players
+4. View Game History
+5. Resume last played Game
+6. Exit Game
+Enter your choice :
+4
+nisha(canada) has completed the loot grabbing $1700
+manju(america) has completed the loot grabbing $2150
+****CAVE LOOTER GAME****
+1. Create Player profile
+2. Play Game
+3. View All Players
+4. View Game History
+5. Resume last played Game
+6. Exit Game
+Enter your choice :
+6
+You Exit the Game App
