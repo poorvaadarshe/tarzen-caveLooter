@@ -1,6 +1,10 @@
 package com.tarzen.cavelooter.dao;
 
-import org.junit.Assert;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
+
+import java.util.List;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -15,50 +19,48 @@ public class GameDaoImplTest {
 
 	@InjectMocks
 	GameDaoImpl gameDaoImpl;
-	
+
 	@Before
 	public void setup() {
 		MockitoAnnotations.initMocks(this);
 	}
-	
+
 	@Test
 	public void testSaveGameWithPausedGame() {
 		Game game = DataCreationHelper.createGameModel();
 		gameDaoImpl.saveGame(game, true);
 	}
-	
+
 	@Test
 	public void testSaveGameWithoutPausedGame() {
 		Game game = DataCreationHelper.createGameModel();
 		gameDaoImpl.saveGame(game, false);
 	}
 
-	
 	@Test
 	public void testGetPausedGame() throws GamesNotFoundException {
-		testSaveGameWithPausedGame();
+		Game game = DataCreationHelper.createGameModel();
+		gameDaoImpl.saveGame(game, true);
 		gameDaoImpl.getPausedGame();
-		Assert.assertEquals("Jame", gameDaoImpl.getPausedGame().getPlayer().getPlayerName());
+		assertEquals("Jame", gameDaoImpl.getPausedGame().getPlayer().getPlayerName());
 	}
+
 	@Test
 	public void testGetAllGames() throws GamesNotFoundException {
-		testSaveGameWithoutPausedGame();
-		gameDaoImpl.getAllGames();
-		Assert.assertEquals(2, gameDaoImpl.getAllGames().size());
+		List<Game> games = gameDaoImpl.getAllGames();
+		assertNotNull(games);
 	}
-	@Test(expected=GamesNotFoundException.class)
+
+	@Test(expected = GamesNotFoundException.class)
 	public void testGetAllGamesException() throws GamesNotFoundException {
 		gameDaoImpl.getAllGames().clear();
 		gameDaoImpl.getAllGames();
 	}
-	
-	
 
-	@Test(expected=GamesNotFoundException.class)
+	@Test(expected = GamesNotFoundException.class)
 	public void testGetPausedGameException() throws GamesNotFoundException {
-		gameDaoImpl.getAllGames().clear();
+		gameDaoImpl.resetPausedGameOnGameOver();
 		gameDaoImpl.getPausedGame();
 	}
-	
-	
+
 }

@@ -45,7 +45,7 @@ public class PlayerDaoImplTest {
 
 	@Test
 	public void getAllPlayersTest() throws PlayerNotFoundException, PlayerProfileAlreadyExistsException {
-		savePlayerProfileTest();
+		playerDaoImpl.savePlayerProfile(DataCreationHelper.createPlayerDetails());
 		Assert.assertNotNull(playerDaoImpl.getAllPlayers());
 	}
 
