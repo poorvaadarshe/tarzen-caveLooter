@@ -14,12 +14,11 @@ import com.tarzen.cavelooter.util.UserInputReader;
  */
 public class WelcomeMenuNavigator implements IMenuNavigator{
 
-	int userChoice = 0;
-	
 	private WelcomeMenuActionsService welcomeMenuService = new WelcomeMenuActionsServiceImpl();
 	
 	@Override
 	public void startApp() {
+		int userChoice = 0;
 		do {
 			MenuEnum.MAIN_MENU_OPTIONS.getMenuProperties().forEach((menuOption)->{
 				System.out.println(menuOption);

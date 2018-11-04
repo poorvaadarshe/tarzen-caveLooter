@@ -17,11 +17,9 @@ import com.tarzen.cavelooter.util.UserInputReader;
  */
 public class GameActionsServiceImpl implements GameActionsService {
 
-	int userChoice = 0;
-
-
 	@Override
 	public void playGame(Game game, boolean isResumedGame) {
+		int userChoice = 0;
 		do {
 			if (game.isGameOver() && game.getPlayer().getPower() > 0) {
 				System.out.println("Excellent!! You completed the Cave Loot with $" + game.getPlayer().getTotalLoot());
