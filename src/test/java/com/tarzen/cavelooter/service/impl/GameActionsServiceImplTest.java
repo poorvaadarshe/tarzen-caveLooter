@@ -11,13 +11,13 @@ import org.powermock.core.classloader.annotations.PrepareForTest;
 import org.powermock.modules.junit4.PowerMockRunner;
 
 import com.tarzen.cavelooter.entity.Game;
-import com.tarzen.cavelooter.factory.TarzenServiceFactory;
+import com.tarzen.cavelooter.factory.GameServiceObjectFactory;
 import com.tarzen.cavelooter.model.DataCreationHelper;
 import com.tarzen.cavelooter.service.GameRefereeService;
 import com.tarzen.cavelooter.util.UserInputReader;
 
 @RunWith(PowerMockRunner.class)
-@PrepareForTest({ TarzenServiceFactory.class, UserInputReader.class })
+@PrepareForTest({ GameServiceObjectFactory.class, UserInputReader.class })
 public class GameActionsServiceImplTest {
 
 	@InjectMocks
@@ -33,13 +33,13 @@ public class GameActionsServiceImplTest {
 
 	@Test
 	public void playGame() {
-		PowerMockito.mockStatic(TarzenServiceFactory.class);
+		PowerMockito.mockStatic(GameServiceObjectFactory.class);
 		gameActionsServiceImpl.playGame(DataCreationHelper.createGameModel(), true);
 	}
 
 	@Test
 	public void testPlayGame() {
-		PowerMockito.mockStatic(TarzenServiceFactory.class);
+		PowerMockito.mockStatic(GameServiceObjectFactory.class);
 		Game game = DataCreationHelper.createGameModel();
 		game.getPlayer().setPower(-22);
 		gameActionsServiceImpl.playGame(game, true);

@@ -13,11 +13,11 @@ import org.powermock.modules.junit4.PowerMockRunner;
 
 import com.tarzen.cavelooter.constants.Constants;
 import com.tarzen.cavelooter.dao.BarrierDao;
-import com.tarzen.cavelooter.factory.TarzenPersistanceFactory;
+import com.tarzen.cavelooter.factory.GameDaoObjectFactory;
 import com.tarzen.cavelooter.model.DataCreationHelper;
 
 @RunWith(PowerMockRunner.class)
-@PrepareForTest(TarzenPersistanceFactory.class)
+@PrepareForTest(GameDaoObjectFactory.class)
 public class BarrierServiceImplTest {
 
 	@InjectMocks
@@ -29,8 +29,8 @@ public class BarrierServiceImplTest {
 	@Before
 	public void setup() {
 		MockitoAnnotations.initMocks(this);
-		PowerMockito.mockStatic(TarzenPersistanceFactory.class);
-		Mockito.when(TarzenPersistanceFactory.getDaoObject(Constants.BARRIER)).thenReturn(barrierDao);
+		PowerMockito.mockStatic(GameDaoObjectFactory.class);
+		Mockito.when(GameDaoObjectFactory.getDaoObject(Constants.BARRIER)).thenReturn(barrierDao);
 	}
 
 	@Test

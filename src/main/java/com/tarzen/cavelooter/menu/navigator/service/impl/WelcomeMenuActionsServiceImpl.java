@@ -3,7 +3,7 @@ package com.tarzen.cavelooter.menu.navigator.service.impl;
 import com.tarzen.cavelooter.constants.Constants;
 import com.tarzen.cavelooter.entity.Game;
 import com.tarzen.cavelooter.entity.Player;
-import com.tarzen.cavelooter.factory.TarzenServiceFactory;
+import com.tarzen.cavelooter.factory.GameServiceObjectFactory;
 import com.tarzen.cavelooter.menu.navigator.service.WelcomeMenuActionsService;
 import com.tarzen.cavelooter.service.BarrierService;
 import com.tarzen.cavelooter.service.GameActionsService;
@@ -123,19 +123,19 @@ public class WelcomeMenuActionsServiceImpl implements WelcomeMenuActionsService 
 	}
 
 	private GameActionsService getGameActionsService() {
-		return (GameActionsService) TarzenServiceFactory.getServiceObject(Constants.GAME_ACTION);
+		return (GameActionsService) GameServiceObjectFactory.getServiceObject(Constants.GAME_ACTION);
 	}
 
 	private PlayerService getPlayerService() {
-		return (PlayerService) TarzenServiceFactory.getServiceObject(Constants.PLAYER);
+		return (PlayerService) GameServiceObjectFactory.getServiceObject(Constants.PLAYER);
 	}
 
 	private GameService getGameService() {
-		return (GameService) TarzenServiceFactory.getServiceObject(Constants.GAME);
+		return (GameService) GameServiceObjectFactory.getServiceObject(Constants.GAME);
 	}
 
 	private BarrierService getBarrierService() {
-		return (BarrierService) TarzenServiceFactory.getServiceObject(Constants.BARRIER);
+		return (BarrierService) GameServiceObjectFactory.getServiceObject(Constants.BARRIER);
 	}
 
 }

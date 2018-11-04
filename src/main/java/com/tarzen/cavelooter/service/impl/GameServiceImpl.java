@@ -7,7 +7,7 @@ import com.tarzen.cavelooter.dao.GameDao;
 import com.tarzen.cavelooter.entity.Game;
 import com.tarzen.cavelooter.entity.Player;
 import com.tarzen.cavelooter.exceptions.GamesNotFoundException;
-import com.tarzen.cavelooter.factory.TarzenPersistanceFactory;
+import com.tarzen.cavelooter.factory.GameDaoObjectFactory;
 import com.tarzen.cavelooter.service.GameService;
 
 /**
@@ -65,7 +65,7 @@ public class GameServiceImpl implements GameService {
 	}
 
 	private GameDao getGameDao() {
-		return (GameDao) TarzenPersistanceFactory.getDaoObject(Constants.GAME);
+		return (GameDao) GameDaoObjectFactory.getDaoObject(Constants.GAME);
 	}
 
 

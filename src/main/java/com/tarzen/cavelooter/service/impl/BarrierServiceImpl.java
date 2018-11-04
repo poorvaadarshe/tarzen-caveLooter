@@ -6,7 +6,7 @@ import com.tarzen.cavelooter.constants.Constants;
 import com.tarzen.cavelooter.dao.BarrierDao;
 import com.tarzen.cavelooter.entity.Barrier;
 import com.tarzen.cavelooter.entity.Game;
-import com.tarzen.cavelooter.factory.TarzenPersistanceFactory;
+import com.tarzen.cavelooter.factory.GameDaoObjectFactory;
 import com.tarzen.cavelooter.service.BarrierService;
 
 /**
@@ -23,6 +23,6 @@ public class BarrierServiceImpl implements BarrierService {
 	}
 
 	private BarrierDao getBarrierDao() {
-		return (BarrierDao) TarzenPersistanceFactory.getDaoObject(Constants.BARRIER);
+		return (BarrierDao) GameDaoObjectFactory.getDaoObject(Constants.BARRIER);
 	}
 }

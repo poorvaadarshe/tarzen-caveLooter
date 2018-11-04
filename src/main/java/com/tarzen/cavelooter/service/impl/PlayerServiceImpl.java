@@ -8,7 +8,7 @@ import com.tarzen.cavelooter.entity.Game;
 import com.tarzen.cavelooter.entity.Player;
 import com.tarzen.cavelooter.exceptions.PlayerNotFoundException;
 import com.tarzen.cavelooter.exceptions.PlayerProfileAlreadyExistsException;
-import com.tarzen.cavelooter.factory.TarzenPersistanceFactory;
+import com.tarzen.cavelooter.factory.GameDaoObjectFactory;
 import com.tarzen.cavelooter.service.PlayerService;
 import com.tarzen.cavelooter.util.UserInputReader;
 
@@ -75,7 +75,7 @@ public class PlayerServiceImpl implements PlayerService {
 	}
 
 	private PlayerDao getPlayerDao() {
-		return (PlayerDao) TarzenPersistanceFactory.getDaoObject(Constants.PLAYER);
+		return (PlayerDao) GameDaoObjectFactory.getDaoObject(Constants.PLAYER);
 	}
 	
 	

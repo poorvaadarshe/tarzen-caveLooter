@@ -6,7 +6,7 @@ package com.tarzen.cavelooter.service.impl;
 import com.tarzen.cavelooter.constants.Constants;
 import com.tarzen.cavelooter.entity.Game;
 import com.tarzen.cavelooter.enums.MenuEnum;
-import com.tarzen.cavelooter.factory.TarzenServiceFactory;
+import com.tarzen.cavelooter.factory.GameServiceObjectFactory;
 import com.tarzen.cavelooter.service.GameActionsService;
 import com.tarzen.cavelooter.service.GameRefereeService;
 import com.tarzen.cavelooter.util.UserInputReader;
@@ -55,7 +55,7 @@ public class GameActionsServiceImpl implements GameActionsService {
 	}
 
 	private GameRefereeService getCaveLootReporterService() {
-		return (GameRefereeService) TarzenServiceFactory.getServiceObject(Constants.GAME_REFEREE);
+		return (GameRefereeService) GameServiceObjectFactory.getServiceObject(Constants.GAME_REFEREE);
 	}
 
 }

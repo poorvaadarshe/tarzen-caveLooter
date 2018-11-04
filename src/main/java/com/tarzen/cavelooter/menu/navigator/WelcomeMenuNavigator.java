@@ -1,6 +1,8 @@
 package com.tarzen.cavelooter.menu.navigator;
 
+import com.tarzen.cavelooter.constants.Constants;
 import com.tarzen.cavelooter.enums.MenuEnum;
+import com.tarzen.cavelooter.factory.GameServiceObjectFactory;
 import com.tarzen.cavelooter.menu.navigator.service.WelcomeMenuActionsService;
 import com.tarzen.cavelooter.menu.navigator.service.impl.WelcomeMenuActionsServiceImpl;
 import com.tarzen.cavelooter.util.UserInputReader;
@@ -14,7 +16,7 @@ import com.tarzen.cavelooter.util.UserInputReader;
  */
 public class WelcomeMenuNavigator implements IMenuNavigator{
 
-	private WelcomeMenuActionsService welcomeMenuService = new WelcomeMenuActionsServiceImpl();
+	private WelcomeMenuActionsService welcomeMenuService = getWelcomeActionsServiceObject();
 	
 	@Override
 	public void startApp() {
@@ -50,5 +52,9 @@ public class WelcomeMenuNavigator implements IMenuNavigator{
 			}
 			
 		}while(userChoice!=6);
+	}
+	
+	private WelcomeMenuActionsServiceImpl getWelcomeActionsServiceObject() {
+		return (WelcomeMenuActionsServiceImpl)GameServiceObjectFactory.getServiceObject(Constants.WELCOME_ACTIONS);
 	}
 }

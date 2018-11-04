@@ -11,6 +11,7 @@ public class Constants {
 	public static final String PLAYER = "player";
 	public static final String BARRIER = "barrier";
 	public static final String GAME_ACTION = "gameAction";
-	public static final String GAME_REFEREE = "GameReferee";
+	public static final String GAME_REFEREE = "gameReferee";
+	public static final String WELCOME_ACTIONS = "welcomeActions";
 
 }
